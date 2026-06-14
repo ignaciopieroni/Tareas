@@ -1,0 +1,38 @@
+#sInvitation-container {
+  text-align: center;
+}
+
+ul { list-style-type: none; }
+li {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(1fr);
+}
+
+input, span, button {
+  margin: .5rem auto;
+  width: 45%;
+  height: 1.7rem;
+}
+button {
+  border-radius: 20px;
+
+  color: var(--main-bg-color);
+
+  border: 0;
+  cursor: pointer;
+
+  box-shadow: -0.1vw 0.4vh 0.5rem 0 var(--text-color);
+  transition: box-shadow 0.2s ease-out;
+}
+button:active { box-shadow: none; }
+
+button, i {
+  background-color: var(--tertiary-bg-color);
+  color: var(--main-bg-color);
+}
+
+.sInvitation-container {
+  text-align: center;
+  padding: 0.5rem 0;
+}

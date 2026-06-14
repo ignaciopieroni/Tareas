@@ -1,0 +1,41 @@
+<div>
+    @for (member of organizationMembers; track member.user) {
+        <div class="member-container">
+            <div>
+                <div class="member-data">
+                    <div>
+                        <span>Nombre de Usuario: </span>
+                        <span>{{ member.user_username }}</span>
+                    </div>
+                    <div>
+                        <span>Email: </span>
+                        <span>{{ member.user_email }}</span>
+                    </div>
+                    <div>
+                        <span>Fecha de Ingreso: </span>
+                        <span>{{ member.joined_at | date }}</span>
+                    </div>
+                    <div class="member-data-rol">
+                        <p>Rol: </p>
+                        <p>{{ formatedRole(member?.role_name) }}</p>
+                    </div>
+                </div>
+                <!-- Contenedor de los botones con los roles asignables -->
+                <div class="member-administrate-bottons">
+                    <button (click)="toggleRoleOptions(member.user)">Permisos</button>
+                    <button (click)="kickUser(member)">Eliminar</button>
+                </div>
+            </div>
+            <div class="rols-selector">
+            <!--Edición de roles, si se seleccionó arriba -->
+            @if (showRoleOptions[member.user]) {
+                @for (role of ORGANIZATION_ROLES; track role) {
+                    <button (click)="changeUserRole(member, role)">
+                    {{ formatedRole(role.name) }}
+                    </button>
+                }
+            }
+            </div>
+        </div>
+    }
+</div>

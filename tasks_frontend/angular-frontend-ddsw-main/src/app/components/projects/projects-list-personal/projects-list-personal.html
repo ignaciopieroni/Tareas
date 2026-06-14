@@ -1,0 +1,42 @@
+<div class='main-container pers'>
+    
+    <div class='title-container pers'>
+        <span>
+            PROYECTOS PERSONALES
+        </span>
+    </div>
+    
+    <div class="projects-container">
+        @for(proyecto of projects; track proyecto.id) {
+            <!-- Acá verificamos si se quiere editar el proyecto que se renderizó en esta iteración -->
+            @if(editProjectId === proyecto.id) {
+                <app-edit-project
+                    [project]="proyecto"
+                    (save)="onSave($event)"
+                    (cancel)="editProjectId = null"/>
+            } 
+            @else {
+                <div class='project-container pers'>
+                    <div class="project-header">
+                        <span>Proyecto: "{{ proyecto.name }}"</span>
+                        <div>
+                            <button class="proyect-edit-button" (click)="deleteProject(proyecto)">
+                                <i class="bi bi-trash"></i></button>
+                            <button class="proyect-edit-button" (click)="editProjectId = proyecto.id">
+                                <i class="bi bi-pencil"></i></button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span>Creado el: {{ proyecto.created_at | date }}</span>
+                    </div>
+                    <div class="project-description">
+                        <p>{{ proyecto.description }}</p>
+                    </div>
+                    <div style="text-align:center;">
+                        <button [routerLink]="[`/tasks/${proyecto.id}`]">Ir al Proyecto</button>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>

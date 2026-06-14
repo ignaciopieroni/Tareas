@@ -1,0 +1,25 @@
+<nav [ngClass]="{'hidden-navbar':!navbarVisible}">
+    <!-- Logo y Nombre de app -->
+    <div id="logo-container">
+        <span>Tareas</span>
+        <div id="logo">
+            <div class="icon-bar"></div>
+            <div class="icon-bar"></div>
+            <div class="icon-bar"></div>
+            <div class="icon-bar"></div>
+        </div>
+    </div>
+    <!-- Links -->
+    <ul>
+    @for (link of navLinks; track link.path) {
+        @if (link.enabled) {
+            <li>
+                <a [routerLink]="link.path">
+                    <span class="link-label">{{ link.label }}</span>
+                    <i class="{{ link.icon }}"></i>
+                </a>
+            </li>
+        }
+    }
+    </ul>
+</nav>

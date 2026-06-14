@@ -1,0 +1,94 @@
+form {
+    width: 70%;
+    max-height: 70vh;
+    overflow-y: auto;
+
+    margin: 2rem auto;
+    padding: 3rem 1rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    border-radius: 12px;
+    background-image: radial-gradient(var(--quaternary-bg-color), var(--fifth-bg-color));
+    box-shadow: 0 0 25px 0 var(--text-color);
+}
+
+input,textarea {
+    display: block;
+
+    width: 100%;
+    height: 3vh;
+    min-height: 30px;
+
+    margin: .4rem 0;
+    padding: .6rem;
+
+    border: 1px solid var(--text-color);
+}
+label.required {
+    font-weight: bold;
+}
+textarea {
+    max-width: 100%;
+    min-height: 80px;
+}
+
+input,textarea,select {
+    border-radius: 16px;
+}
+
+.form-control {
+    width: 50%;
+    margin: auto;
+}
+
+.form-control.type {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto;
+}
+
+.admin-container {
+    width: 50%;
+    margin: auto;
+    padding: 1rem 0;
+
+    border-bottom: 1px solid var(--text-color);
+}
+
+.admin-item {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto;
+
+    margin: 1rem .2rem;
+}
+
+.admin-input-container > button {
+    margin: 0.5rem 0;
+    width: 30%;
+}
+
+button {
+    padding: .5rem;
+
+    border: none;
+    border-radius: 16px;
+
+    background-color: var(--tertiary-bg-color);
+    color: var(--main-bg-color);
+    
+    cursor: pointer;
+
+    box-shadow: -5px 5px 6px var(--text-color);
+    transition: box-shadow 0.1s ease-out;
+}
+button:active { box-shadow: none; }
+
+.submit-btn-container { margin: auto; }
+.submit-btn-container > button {
+    background-image: linear-gradient(45deg, var(--highlight-bg-color) 49%, var(--tertiary-bg-color)51%);
+    width: 20rem;
+}

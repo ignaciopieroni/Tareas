@@ -1,0 +1,30 @@
+article {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 16px;
+
+    align-items: center;
+}
+.article-image { text-align: center; }
+
+img { 
+    margin: 1.2rem;
+    max-width: 40vw;
+}
+
+.a-title {
+    font-weight: 400;
+    font-size: 2.4rem;
+
+    text-align: center;
+}
+
+.a-text {
+    letter-spacing: 1.3px; /* Separar horizontalmente letras */
+    line-height: 3.5rem;   /* Tamaño del salto de línea */
+    font-weight: 300;
+    font-size: 1.8rem;
+
+    padding: 2rem;
+}

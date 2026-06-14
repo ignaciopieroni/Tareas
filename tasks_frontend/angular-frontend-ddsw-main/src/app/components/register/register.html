@@ -1,0 +1,16 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()" action="">
+    <h1>Registrate para comenzar</h1>   <div></div>
+
+    <div class="inputs-container inputs-required">
+        <label>(*) Nombre de Usuario:</label>
+        <input formControlName="username" type="text" placeholder="Crea el nombre por el que te conozcan"/>
+
+        <label>(*) Email:</label>
+        <input formControlName="email" type="email" placeholder="Ingresa tu correo electrónico" />
+
+        <label>(*) Contraseña:</label>
+        <input formControlName="password" minlength="8" type="password" placeholder="Crea una contraseña segura" />
+
+        <button type="submit" style="width: 100%;">Registrate</button>
+    </div>
+</form>

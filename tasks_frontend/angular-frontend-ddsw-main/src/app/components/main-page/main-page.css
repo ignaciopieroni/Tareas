@@ -1,0 +1,53 @@
+.new-project-container {
+    padding: 20px;
+
+    background-image: linear-gradient(45deg, var(--fifth-bg-color),var(--quaternary-bg-color));
+}
+
+.boton-dividido {
+    margin: auto;
+    width: 20vw;
+    max-width: 300px;
+    height: 5vh;
+    max-height: 50px;
+    min-height: 30px;
+
+    border: none;
+    border-radius: 80px;
+    cursor: pointer;
+    overflow: hidden;
+
+    display: flex; /* Para que los hijos se expandan */
+    align-items: center; /* Centra verticalmente el contenido */
+    padding: 0;
+}
+
+.boton-dividido .mitad{
+    flex: 1; /* Ocupar el 50% del ancho automáticamente */
+    height: 100%; /* Y, todo el alto del botón */
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    
+    color: var(--main-bg-color);
+    font-weight: 500;
+
+    margin: 0;
+    gap: 0.5rem; /* Espacio entre texto e ícono */
+}
+
+.boton-dividido .izquierda {
+    background-color: var(--highlight-bg-color);
+}
+
+.boton-dividido .derecha, .derecha > i {
+    background-color: var(--tertiary-bg-color);
+    color: var(--main-bg-color);
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+}
+

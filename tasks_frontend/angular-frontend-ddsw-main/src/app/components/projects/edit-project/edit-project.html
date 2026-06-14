@@ -1,0 +1,27 @@
+<form [formGroup]="formulario" action="" method="">
+    <div [ngClass]="['project-container', (!project?.owner)? 'org' : 'pers']" style="display: block;">
+        
+        <div class="project-header">
+            <span>Proyecto:</span>
+            <input 
+            formControlName="name"
+            type="text" />
+            <div>
+                <button class="proyect-edit-button" (click)="cancel.emit()">
+                    <i class="bi bi-x-circle"></i></button>
+            </div>
+        </div>
+        <div class="project-info">
+            <span>Creado el: {{ project?.created_at| date : 'dd/MM/yyyy' }}</span>
+        </div>
+        <div class="project-description" style="text-align: center;">
+            <textarea 
+            formControlName="description"
+            style="width: 20rem;max-width: 20rem; min-height: 3rem;">
+            </textarea>
+        </div>
+        <div style="text-align: center;">
+            <button (click)="changeData()">Guardar cambios</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,81 @@
+.task-container {
+  position: absolute;
+  top: 10vh;
+  left: 10vw;
+  
+  width: 80vw;
+  height: 70vh;
+  
+  padding: 1rem;
+  margin: 1rem auto;
+
+  border-radius: 12px;
+  box-shadow: 0 0 10px 0 var(--text-color);
+  color: var(--main-bg-color);
+}
+.task-container.org {
+  background-color: var(--sixth-bg-color);
+}
+
+.task-container.pers {
+  background-color: var(--secondary-bg-color);
+}
+
+label {
+  margin-top: 2rem;
+}
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.task-fields label {
+  display: block;
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+.fields-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 1rem;
+}
+
+.fields-container > div {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.task-fields input,
+.task-fields textarea,
+.task-fields select {
+  width: 100%;
+  padding: 0.4rem;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+  margin-top: 0.2rem;
+  background-color: #fff;
+}
+
+button {
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  box-shadow: -2px 2px 5px 0 var(--text-color);
+}
+.task-container.org button {
+  background-color: var(--tertiary-bg-color);
+  color: var(--main-bg-color);
+}
+.task-container.pers button {
+  background-color: var(--highlight-bg-color);
+  color: var(--main-bg-color);
+}
+button:active {
+  box-shadow: none;
+}

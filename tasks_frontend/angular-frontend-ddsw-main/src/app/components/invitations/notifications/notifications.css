@@ -1,0 +1,37 @@
+#notifications-flot {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  border-radius: 50%;
+  border: none;
+  padding: 16px;
+  font-size: 24px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+
+#notifications-flot:active {
+    box-shadow: none;
+}
+
+.floating-card {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  
+  min-width: 25vw;
+  width: 400px;
+  max-height: 700px;
+
+  max-height: 400px;
+  overflow-y: auto;
+  
+  border-radius: 8px;
+  padding: 16px;
+  
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  
+  z-index: 999;
+}

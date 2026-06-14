@@ -1,0 +1,27 @@
+<form [formGroup]="formulario" action="" method="">
+    <div class="form-control type">
+        <label class="required">(*) Tipo de proyecto</label>
+        <select id="projectTipeSelector">
+            <option value="p">Personal</option>
+            @if(organizationId > 0) {
+                <option value="o">Organizacional</option>   
+            }
+        </select>
+    </div>
+
+    <div class="form-control">
+        <label class="required">(*) Nombre del proyecto</label>
+        <input type="text" formControlName="name" maxlength="32" />
+    </div>
+
+    <div class="form-control">
+        <label>Descripción del proyecto</label>
+        <textarea formControlName="description"></textarea>
+    </div>
+
+    
+
+    <div class="submit-btn-container">
+        <button (click)="onSubmit()">Crear Proyecto</button>
+    </div>
+</form>

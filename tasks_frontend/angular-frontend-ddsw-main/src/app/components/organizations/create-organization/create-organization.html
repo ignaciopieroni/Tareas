@@ -1,0 +1,13 @@
+<form 
+    [formGroup]="registerForm" 
+    action="" 
+    method="">
+
+    <div class="form-control type">
+        <label class="required">(*) Organización</label>
+        <input type="text" formControlName="name" placeholder="Nombre de la Organización"/>
+        <button (click)="onSubmit()" type="submit" class="button">Crear organización</button>
+    </div>
+
+
+</form>

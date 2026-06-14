@@ -1,0 +1,11 @@
+# Python
+__pycache__/
+
+# Entorno Virtual
+venv/
+
+# Base de datos
+
+
+# Configuraciones de IDE/SO
+.vscode/

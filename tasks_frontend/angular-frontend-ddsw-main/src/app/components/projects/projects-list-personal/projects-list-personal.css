@@ -1,0 +1,151 @@
+.main-container {
+    height: 100%;
+
+    color: var(--main-bg-color);
+}
+.main-container.pers { background-color: var(--fifth-bg-color); }
+.main-container.org { background-color: var(--quaternary-bg-color); }
+
+.title-container > span{
+    display: block;
+    margin: auto;
+    border-radius: 80px;
+    
+    width: 60%;
+    height: 80px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    font-weight: 800;
+    text-shadow: 
+    -0.1rem -0.1rem 0 var(--text-color),
+    -0.1rem 0.1rem 0 var(--text-color),
+    0.1rem 0.1rem 0 var(--text-color),
+    0.1rem -0.1rem 0 var(--text-color);
+}
+.title-container.org > span  { background-image: url('/proyectos-organizacionales.png'); }
+.title-container.pers > span { background-image: url('/proyectos-personales.png'); }
+
+.projects-container {
+    padding: 1rem 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.project-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 4fr 1fr 3fr 2fr;
+    align-items: center;
+
+    padding: .6rem;
+    margin: auto;
+    width: 70%;
+
+    border-radius: 20px;
+    box-shadow: 0 0 10px 0 var(--text-color);
+
+    font-weight: 400;
+    font-size: 1.1rem;
+}
+.project-container::selection { color: var(--text-color); }
+
+.project-container.org { background-color: var(--sixth-bg-color); }
+.project-container.org button {background-color: var(--tertiary-bg-color);}
+
+.project-container.pers { background-color: var(--secondary-bg-color); }
+.project-container.pers button { background-color: var(--highlight-bg-color); }
+
+.project-container button {
+    width: 45%;
+    
+    padding: .4rem .8rem;
+
+    border: none;
+    border-radius: 1rem;
+
+    color: var(--main-bg-color);
+
+    cursor: pointer;
+    box-shadow: -2px 2px 5px 0 var(--text-color);
+    transition: box-shadow 0.1s ease-out;
+}
+.project-container button:active { box-shadow: none; }
+
+.proyect-edit-button, .proyect-edit-button > i {
+    width: 32px !important;
+    height: 32px;
+
+    padding: 0 !important;
+}
+
+.project-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+.project-header button {
+    margin: 0 0.3rem;
+}
+.project-header > * { display: block; }
+
+.project-info { text-align: right; }
+
+.project-description {
+    font-style: italic;
+    opacity: 0.8;
+    padding: 1.3rem 0;
+    max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+.project-description p {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  white-space: pre-line;
+  word-break: break-word;
+}
+
+.btn-crear-organizacion {
+    width: 50%;
+    max-width: 300px;
+    height: 5vh;
+    max-height: 50px;
+    min-height: 30px;
+    
+    margin: auto;
+    
+    border: none;
+    border-radius: 80px;
+    cursor: pointer;
+
+    background-color: var(--tertiary-bg-color);
+    color: var(--main-bg-color);
+}
+
+.btn-administrate-org {
+    margin: auto;
+    width: 70%;
+
+    height: 2rem;
+    min-height: 60px;
+
+    background-color: var(--main-bg-color);
+    color: var(--tertiary-bg-color);
+
+    font-size: 1.2rem;
+    font-weight: 400;
+    
+    border: 1px solid var(--tertiary-bg-color);
+    border-radius: 20px;
+
+    cursor: pointer;
+}

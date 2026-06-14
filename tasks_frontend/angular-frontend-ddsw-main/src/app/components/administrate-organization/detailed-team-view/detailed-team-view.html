@@ -1,0 +1,66 @@
+<div class="main-container">
+    <div>
+        <button class="goBackBtn" (click)="goBack.emit()">
+            <i class="bi bi-chevron-double-left"></i>
+            Volver
+        </button>
+    </div>
+    <div class="team-data">
+        @for (member of teamMembers; track member.id) {
+            <div class="member-container">
+                <div>
+                    <div class="member-data">
+                        <div>
+                            <span>Nombre del Usuario: </span>
+                            <span>{{ userName(member.user) }}</span>
+                        </div>
+                        <div>
+                            <span>Fecha de Ingreso: </span>
+                            <span>{{ member.joined_at | date }}</span>
+                        </div>
+                        <div class="member-data-rol">
+                            <p>Rol: </p>
+                            {{ formatedRole(getRoleName(member.role)) }}
+                        </div>
+                    </div>
+                    <!-- Contenedor de los botones con los roles asignables -->
+                    <div class="member-administrate-bottons">
+                        <button (click)="toggleRoleOptions(member.user)">Permisos</button>
+                        <button (click)="kickUser(member)">Eliminar</button>
+                    </div>
+                </div>
+                <div class="rols-selector">
+                <!--Edición de roles, si se seleccionó arriba -->
+                @if (showRoleOptions[member.user]) {
+                    @for (role of ORGANIZATION_ROLES; track role) {
+                        <button (click)="changeUserRole(member, role)">
+                        {{ formatedRole(role.name) }}
+                        </button>
+                    }
+                }
+                </div>
+            </div>
+        }
+        @empty {
+            <p>No hay miembros en el equipo</p>
+        }
+    </div>
+    <div class="team-invite">
+        <h4>Agregar Usuarios de la Organización al Equipo</h4>
+        @for (orgMember of organizationMembersNotInTeam; track orgMember.id) {
+            <br>
+            <div class="newMembersList">
+                <div>
+                    <p>Username: {{ orgMember.user_username }}</p>
+                    <p>Se Unió en: {{ orgMember.joined_at | date}}</p>
+                    <p style="font-style: italic;">Email: {{ orgMember.user_email }}</p>
+                </div>
+                <div>
+                    <button (click)="addUserToTeam(orgMember)">Agregar al Equipo</button>
+                </div>
+            </div>
+        }@empty {
+            <p>Parece que no se pueden encontrar miembros para agregar</p>
+        }
+    </div>
+</div>

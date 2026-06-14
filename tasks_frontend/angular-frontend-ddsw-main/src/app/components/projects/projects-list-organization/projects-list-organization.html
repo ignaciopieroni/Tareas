@@ -1,0 +1,57 @@
+<div class='main-container org'>
+    
+    <div class='title-container org'>
+        <span>
+            PROYECTOS ORGANIZACIONALES
+        </span>
+    </div>
+    
+    <div class="projects-container">
+        @for(proyecto of projects; track proyecto.id) {
+            <!-- Acá verificamos si se quiere editar el proyecto que se renderizó en esta iteración -->
+            @if(editProjectId === proyecto.id) {
+                <app-edit-project
+                    [project]="proyecto"
+                    (save)="onSave($event)"
+                    (cancel)="editProjectId = null"/>
+            } 
+            @else {
+                <div class='project-container org'>
+                    <div class="project-header">
+                        <span>Proyecto: "{{ proyecto.name }}"</span>
+                        <div>
+                            <button class="proyect-edit-button" (click)="deleteProject(proyecto)">
+                                <i class="bi bi-trash"></i></button>
+                            <button class="proyect-edit-button" (click)="editProjectId = proyecto.id">
+                                <i class="bi bi-pencil"></i></button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span>Creado el: {{ proyecto.created_at | date : 'dd/MM/yyyy' }}</span>
+                    </div>
+                    <div class="project-description">
+                        <p>{{ proyecto.description }}</p>
+                    </div>
+                    <div style="text-align:center;">
+                        <button [routerLink]="[`/tasks/${proyecto.id}/${proyecto.organization}`]">Ir al Proyecto</button>
+                    </div>
+                </div>
+            }
+        }
+        @if (organizationId < 0) {
+            <button
+                class="btn-crear-organizacion"
+                [routerLink]="['/create_organization']">
+
+                Crear organización <i class="bi bi-plus-lg"></i>
+            </button>
+        }
+        @else {
+            <button
+                class="btn-administrate-org"
+                [routerLink]="[`/manageAdministration/${organizationId}`]">
+                Administrar Organización
+            </button>
+        }
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<div id="sInvitation-container">
+
+    <h4 style="text-align: left;">Invitar participantes a la organización</h4>
+    <div>
+        <input [formControl]="emailControl" type="email" placeholder="Ingresá un email" />
+        @if (emailControl.valid) {
+            <button (click)="addEmail()">Agregar</button>
+        }
+    </div>
+
+    <ul>
+        @for(email of emails; let i = $index; track email) {
+            <li>
+                <span>{{ email }}</span>
+                <button (click)="removeEmail(i)">Eliminar</button>
+            </li>
+        }
+    </ul>
+
+    <div>
+        @if (emails.length > 0) {
+            <button (click)="sendEmails()">
+            Invitar participantes
+            <i class="bi bi-plus"></i>
+            </button>
+        }
+    </div>
+</div>

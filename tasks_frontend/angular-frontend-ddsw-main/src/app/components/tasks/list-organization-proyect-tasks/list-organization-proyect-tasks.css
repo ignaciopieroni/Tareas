@@ -1,0 +1,225 @@
+/* =========================
+   PALETA (colores “correctos”)
+   ========================= */
+:root{
+  /* Texto principal y fondos base */
+  --text-color: #1f2937;           /* gris 800 */
+  --main-bg-color: #ffffff;        /* blanco para textos de botones */
+  --fifth-bg-color: #f3f4f6;       /* gris 100 - fondo de página personal */
+  --quaternary-bg-color: #eef2ff;  /* gris azulado p/organizacional (fallback) */
+
+  /* Tarjeta */
+  --secondary-bg-color: #ffffff;   /* fondo de tarjeta */
+  --card-border: rgba(0,0,0,.10);  /* borde sutil de tarjeta */
+  --card-shadow: rgba(0,0,0,.20);  /* sombra suave */
+
+  /* Acentos */
+  --highlight-bg-color: #00bfa6;   /* turquesa (botones/acentos personales) */
+  --tertiary-bg-color: #6656ff;    /* acento alternativo (org) */
+  --sixth-bg-color: #ffffff;       /* base org */
+
+  /* Elementos de UI */
+  --icon-color: #6b7280;           /* gris 500 para íconos */
+  --icon-color-hover: #374151;     /* gris 700 hover */
+  --separator-dashed: #8bd3c7;     /* menta para línea discontinua */
+  --date-accent: #10b981;          /* verde esmeralda (fechas/enlaces) */
+}
+
+/* =========================
+   CONTENEDORES PRINCIPALES
+   ========================= */
+.main-container {
+  height: 100%;
+  color: var(--text-color);
+}
+.main-container.pers { background-color: var(--fifth-bg-color); }
+.main-container.org  { background-color: var(--quaternary-bg-color); }
+
+/* Título con imagen de fondo */
+.title-container > span{
+  display: block;
+  margin: auto;
+  border-radius: 80px;
+
+  width: 60%;
+  height: 80px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 800;
+  text-shadow:
+    -0.1rem -0.1rem 0 var(--main-bg-color),
+    -0.1rem  0.1rem 0 var(--main-bg-color),
+     0.1rem  0.1rem 0 var(--main-bg-color),
+     0.1rem -0.1rem 0 var(--main-bg-color);
+}
+.title-container.org > span  { background-image: url('/proyectos-organizacionales.png'); }
+.title-container.pers > span { background-image: url('/proyectos-personales.png'); }
+
+.projects-container {
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ==============
+   TARJETA / CARD
+   ============== */
+.project-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  align-items: center;
+
+  padding: .9rem;
+  margin: auto;
+  width: 70%;
+
+  border-radius: 16px;
+  box-shadow: 0 2px 10px 0 var(--card-shadow);
+  border: 1px solid var(--card-border);
+  background-clip: padding-box;
+
+  font-weight: 400;
+  font-size: 1.1rem;
+}
+.project-container::selection { color: var(--text-color); }
+
+.project-container.org { background-color: var(--sixth-bg-color); }
+.project-container.org button { background-color: var(--tertiary-bg-color); }
+
+.project-container.pers { background-color: var(--secondary-bg-color); }
+.project-container.pers button { background-color: var(--highlight-bg-color); }
+
+/* ===========
+   BOTONES
+   =========== */
+.project-container button {
+  width: 45%;
+  padding: .4rem .8rem;
+  border: none;
+  border-radius: 1rem;
+  color: var(--main-bg-color);
+  cursor: pointer;
+  box-shadow: -2px 2px 5px 0 var(--card-shadow);
+  transition: box-shadow 0.1s ease-out, transform 0.06s ease-out;
+}
+.project-container button:active {
+  box-shadow: none;
+  transform: translateY(1px);
+}
+
+/* Botones de edición tipo ícono (como en la captura) */
+.proyect-edit-button {
+  background: transparent !important;
+  box-shadow: none !important;
+  width: 32px !important;
+  height: 32px;
+  padding: 0 !important;
+  border-radius: 50%;
+  color: var(--icon-color);
+}
+.proyect-edit-button:hover { color: var(--icon-color-hover); }
+.proyect-edit-button > i {
+  width: 32px !important;
+  height: 32px;
+  line-height: 32px;
+  font-size: 1.1rem;
+}
+
+/* ======================
+   ENCABEZADO DE TARJETA
+   ====================== */
+.project-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: .5rem;
+  align-items: start;
+  font-weight: 600;
+  font-size: 1.2rem;
+  line-height: 1.2;
+}
+.project-header button { margin: 0 0.3rem; }
+.project-header > * { display: block; }
+
+.project-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-color);
+}
+
+/* ============
+   DESCRIPCIÓN
+   ============ */
+.project-info { text-align: right; }
+
+.project-description {
+  font-style: italic;
+  opacity: 0.95;
+  padding: 1.1rem 0 0.6rem 0;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  position: relative;
+  color: var(--text-color);
+}
+
+/* Separador punteado verde-menta */
+.project-description::after {
+  content: "";
+  display: block;
+  margin-top: .9rem;
+  border-bottom: 3px dashed var(--separator-dashed);
+  width: 100%;
+}
+
+.project-description p {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  white-space: pre-line;
+  word-break: break-word;
+}
+
+/* Enlaces tipo “tareas predecesoras” / fecha en verde */
+.project-description a {
+  color: var(--date-accent);
+  text-decoration: none;
+}
+.project-description a:hover { text-decoration: underline; }
+
+/* =====================
+   BOTÓN FUERA DE CARD
+   ===================== */
+.btn-crear-organizacion {
+  width: 50%;
+  max-width: 300px;
+  height: 5vh;
+  max-height: 50px;
+  min-height: 30px;
+  margin: auto;
+  border: none;
+  border-radius: 80px;
+  cursor: pointer;
+  background-color: var(--tertiary-bg-color);
+  color: var(--main-bg-color);
+}
+
+/* CTA secundario (no crítico aquí) */
+.btn-administrate-org {
+  margin: auto;
+  width: 70%;
+  height: 2rem;
+  min-height: 60px;
+  background-color: var(--main-bg-color);
+  color: var(--tertiary-bg-color);
+  font-size: 1.2rem;
+  font-weight: 400;
+  border: 1px solid var(--tertiary-bg-color);
+  border-radius: 20px;
+  cursor: pointer;
+}

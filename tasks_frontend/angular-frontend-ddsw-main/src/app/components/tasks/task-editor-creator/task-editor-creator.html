@@ -1,0 +1,64 @@
+@if (task !== null) {
+  <form [formGroup]="formulario" (ngSubmit)="submit()" class="task-form">
+
+    <div [ngClass]="['task-container', (orgId != null) ? 'org' : 'pers']">
+      <div class="task-header">
+        <span>
+          <!-- Título dinámico -->
+          {{ newTask ? 'Nueva tarea' : 'Editar tarea' }}
+          @if(orgId !== null) {
+            (Proyecto personal)
+          } @else {
+            (Proyecto organizacional)
+          }
+        </span>
+
+        <div>
+          <button type="button" class="task-edit-button" (click)="cancelled.emit()">
+            <i class="bi bi-x-circle"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="fields-container">
+        <div class="task-fields-left">
+          <label>Nombre</label>
+          <input type="text" formControlName="name" placeholder="Nombre de la tarea" minlength="4" maxlength="32"/>
+
+          <label>Descripción</label>
+          <textarea formControlName="description"></textarea>
+
+          <label>Tareas Predecesoras</label>
+          <select formControlName="predecessors_ids" multiple>
+            @for (tarea of relateTasks; track tarea.id) {
+              <option [value]="tarea.id">{{ tarea.name }}</option>
+            }
+          </select>
+        </div>
+        <div class="task-fields-right">
+          <label>Fecha Límite (si se tiene): </label>
+          <input type="date" formControlName="expiration_datetime" />
+
+          <button style="margin: auto 2rem; width: 70%;" type="submit">
+            {{ newTask ? 'Guardar cambios' : 'Crear tarea' }}
+          </button>
+
+          @if(orgId !== undefined) {
+            <label>Equipos Asignados</label>
+            <select formControlName="teams_ids" multiple>
+              @for (team of relateTeams; track team.id) {
+                <option [value]="team.id">{{ team.name }}</option>
+              }
+            </select>
+            <label>Usuarios Asignados</label>
+            <select formControlName="users_ids" multiple>
+              @for (user of relateUsers; track user.id) {
+                <option [value]="user.id">{{ user.user_username }}</option>
+              }
+            </select>
+          }
+        </div>
+      </div>
+    </div>
+  </form>
+}

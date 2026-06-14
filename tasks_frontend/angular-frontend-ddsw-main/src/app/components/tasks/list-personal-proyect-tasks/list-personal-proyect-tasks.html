@@ -1,0 +1,47 @@
+<div class='main-container pers'>
+    
+    <div class='title-container pers'>
+        <span>
+            TAREAS DEL PROYECTO PERSONAL
+        </span>
+    </div>
+    <div class="projects-container">
+        @for(tarea of tasks; track tarea.id) {
+            <!-- Acá verificamos si se quiere editar la tarea que se renderizó en esta iteración -->
+            @if(editTaskId === tarea.id) {
+            }
+            @else {
+                <div class='project-container pers'>
+                    <div class="project-header">
+                        <span>Tarea: "{{ tarea.name }}"</span>
+                        <div>
+                            <button class="proyect-edit-button" (click)="deleteTask(tarea)">
+                                <i class="bi bi-trash"></i></button>
+                                <button class="proyect-edit-button" (click)="editing = tarea">
+                                <i class="bi bi-pencil"></i></button>
+                            </div>
+                    </div>
+                    <div class="project-description">
+                        <p>{{ tarea.description }}</p>
+                    </div>
+                     <div class="project-description">
+                        <p>Predecesoras: {{ tarea.predecessors }}</p>
+                    </div>   
+                </div>
+            }
+        }
+    </div>
+    <app-task-editor-creator
+        [orgId]="undefined"
+        [proyId]="project_id"
+        [task]="editing"
+        (save)="onSave($event)"
+        (cancelled)="editing = null"/>
+    
+    <!--
+        <app-task-editor-creator 
+        [proyId]="project_id" 
+        [orgId]="undefined"
+        (cancelled)="onCancelled()">
+        <button class="btn-pill btn-close" (click)="closeTasks()">Cerrar Tareas</button>-->
+        <button (click)="newTask()">Crear Tarea</button>

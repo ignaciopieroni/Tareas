@@ -1,0 +1,28 @@
+<div class="main-container">
+    <!-- Se muestra los miembros, no equipos -->
+    @if(!showTeams) {
+        <div class="members-list">
+            <app-organizations-members-list
+                [organizationMembers]="members"
+                [organizationId]="organizationId" />
+        </div>
+        
+        <div class="admin-advanced-functions">
+            <button (click)="showTeams = !showTeams">Administrar Equipos</button>
+            <button (click)="deleteOrganization()">Borrar Organización</button>
+        </div>
+    } 
+    <!-- Caso contrario, mostramos los equipos -->
+    @else {
+        <div class="members-list">
+            <app-administrate-teams
+                [organizationTeams]="teams"
+                [organizationId]="organizationId" />
+        </div>
+        
+        <div class="admin-advanced-functions">
+            <button (click)="showTeams = !showTeams">Administrar Miembros de la Organización</button>
+            <button (click)="crearEquipo()">Crear Equipo</button>
+        </div>
+    }
+</div>

@@ -1,0 +1,40 @@
+<div>
+    <!-- Si no se edita uno de los equipos, mostramos la vista de todos los equipos -->
+    @if (detailTeam === undefined) {
+        @for (team of organizationTeams; track team.id) {
+            <div class="member-container">
+                <div>
+                    <div class="member-data">
+                        <div>
+                            <span>Nombre del equipo: </span>
+                            <span>{{ team.name }}</span>
+                        </div>
+                        @if(team.description) {
+                            <div>
+                                <span>Descripción: </span>
+                                <span>{{ team.description }}</span>
+                            </div>
+                        }
+                        <div>
+                            <span>Fecha de Creación: </span>
+                            <span>{{ team.created_at | date }}</span>
+                        </div>
+                    </div>
+                    <!-- Contenedor de los botones con los roles asignables -->
+                    <div class="member-administrate-bottons">
+                        <button (click)="detailTeam=team">Administrar</button>
+                        <button (click)="deleteTeam(team)">Borrar</button>
+                    </div>
+                </div>
+            </div>
+        } @empty {
+            <p>No hay equipos aún</p>
+        }
+    }@else {
+        <!-- Si se está editando x equipo, se muestra la vista para esto -->
+        <app-detailed-team-view
+        [editTeam]="detailTeam"
+        [orgId]="organizationId"
+        (goBack)="detailTeam=undefined" />
+    }
+</div>

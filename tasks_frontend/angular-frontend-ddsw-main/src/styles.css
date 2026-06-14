@@ -1,0 +1,46 @@
+/* Tengo que si o si agregar el estilo de toastr :/ */
+@import url("ngx-toastr/toastr");
+
+
+:root {
+    --text-color:#2B2C34;
+    
+    --success-color:#5BD7A6;
+    
+    --main-bg-color:#FFFFFE;
+    --highlight-bg-color:#6246EA;
+    --secondary-bg-color:#D1D1E9;
+    --tertiary-bg-color:#E45858;
+    --quaternary-bg-color:#FFF7F7;
+    --fifth-bg-color:#F9F7FF;
+    --sixth-bg-color:#E9D2D2;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+
+    color: var(--text-color);
+    background-color: var(--main-bg-color);
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+a:hover {
+    border-bottom: 1px solid var(--text-color);
+}
+
+*::selection {
+    background: var(--secondary-bg-color);
+}

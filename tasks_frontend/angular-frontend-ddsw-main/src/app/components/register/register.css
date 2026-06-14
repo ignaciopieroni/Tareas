@@ -1,0 +1,68 @@
+form {
+    max-width: 900px;
+    margin: 8vh auto;
+}
+
+h1 {
+    border-radius: 10rem 5rem 0 0;
+    
+    padding-top: 2vh;
+    
+    text-align: center;
+    
+    background-color: var(--secondary-bg-color);
+}
+
+.inputs-container, label, input {
+    background-color: var(--secondary-bg-color);
+
+    font-weight: 400;
+    font-size: 1.1rem;
+}
+
+.inputs-container { padding: 2rem; }
+.inputs-required > label { font-weight: bold; }
+
+input, button{
+    display: block;
+    width: 100%;
+
+    margin: 3vh 0;
+}
+
+input {
+    border: 0;
+    border-bottom: 2px solid var(--text-color);
+    border-radius: 4px;
+
+    font-weight: 200;
+}
+
+
+input:focus {
+    border: 0;
+    outline: 0;
+    border-bottom: 2px solid var(--highlight-bg-color);
+}
+
+button {
+    height: 3rem;
+
+    border: 0;
+    border-radius: 30px;
+
+    background-color: var(--highlight-bg-color);
+    color: var(--main-bg-color);
+    font-size: 1.1rem;
+    font-weight: bold;
+
+    box-shadow: 2px 2px 10px 0 var(--highlight-bg-color);
+
+    cursor: pointer;
+}
+button:active { box-shadow: none; }
+
+form > *::selection, .inputs-container>*::selection  {
+    background-color: var(--highlight-bg-color);
+    color: var(--main-bg-color);
+}
